@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin: 2vw 1vw;
+    color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4vw;
+    font-size: 1.4vw;
+}
+
+nav .logo {
+    display: flex;
+    font-size: 2.7vw;
+
+}
+
+nav .nav-icons ul {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    gap: 3vw;
+
+}
+
+nav .nav-icons ul a {
+    text-decoration: none;
+    color: black;
+}
+
+nav .nav-icons ul a:hover{
+    color: rgb(55, 120, 92);
+    font-size:1.6vw ;
+}
+hr {
+    border: 0.03vw solid rgb(55, 120, 92);
+    margin: 2vw 4vw;
+    background-color: rgb(55, 120, 92);
+}
+
+nav .logo-green {
+    color: rgb(55, 120, 92);
+}
+
+nav .nav-login button {
+    cursor: pointer;
+    margin-right: 1.7vw;
+    font-size: 1.1vw;
+    border: 1px solid rgb(55, 120, 92);
+    border-radius: .8vw;
+    padding: .5vw .7vw;
+    text-align: center;
+    font-family: poppins;
+}
+
+nav .nav-login #button-white {
+    color: rgb(55, 120, 92);
+    background-color: #ffff;
+}
+
+/* nav .nav-login #button-white:hover{
+    background-color: rgb(53, 140, 103);
+    color: white;
+} */
+nav .nav-login #button-green {
+    background-color: rgb(55, 120, 92);
+    color: white;
+
+}
+
+/* nav .nav-login #button-green:hover{
+    background-color: #fff;
+    color: rgb(53, 140, 103);
+} */
+.firstsection {
+    height: calc(100% - 4vw);
+    display: flex;
+}
+
+
+.firstsection .first-leftsection {
+    margin: 5vw 4vw;
+    font-size: 2.4vw;
+    font-weight: 800;
+}
+
+
+.firstsection .first-leftsection span {
+    color: rgb(55, 120, 92);
+    font-size: 4vw;
+    padding: 1vw 1.2vw;
+}
+
+.firstsection .first-leftsection p {
+    margin: 3vw 0;
+    font-size: 1.4vw;
+}
+
+.firstsection .first-leftsection button {
+    background-color: rgb(55, 120, 92);
+    border: 2px solid rgb(55, 120, 92);
+    font-size: 1.5vw;
+    padding: 1vw 2vw;
+    border-radius: .8vw;
+    color: white;
+    cursor: pointer;
+    font-family: poppins;
+    text-align: center;
+}
+
+.firstsection .first-rightsection img {
+    margin: 4vw 3vw;
+}
+
+.secondsection{
+    display: flex;
+}
+.secondsection .second-leftsection{
+    margin: 5vw 4vw;
+    font-weight: 800;
+}
+
+.secondsection .second-leftsection h1{
+    font-size: 4vw;
+    color:rgb(55, 120, 92) ;
+    
+}
+
+.secondsection .second-leftsection p{
+    font-size: 1.4vw;
+    margin-top: 2vw;
+    width: 80%;
+}
+.secondsection .second-rightsection img{
+    margin: 4vw 3vw;
+    padding-right: 6vw;
+    padding-bottom: 4vw;
+}
+
+
+@media (max-width:600px) {
+    nav {
+        font-size: 2.3vw;
+        height: 15vw;
+    }
+
+    nav .logo {
+        font-size: 3vw;
+    }
+
+    nav .nav-login button {
+        font-size: 3vw;
+        padding: .7vw 1vw;
+    }
+
+    .firstsection {
+        margin-top: 6vw;
+        flex-direction: column;
+    }
+
+    .firstsection .first-leftsection {
+        font-size: 4vw;
+
+    }
+
+    .firstsection .first-leftsection h1{
+        text-align: center;
+    }
+
+    .firstsection .first-leftsection span {
+        font-size: 8vw;
+    }
+
+    .firstsection .first-leftsection p {
+        margin-top: 6vw;
+        padding-left: 5vw;
+        width: 80%;
+        font-size: 3vw;
+        line-height: 4vw;
+    }
+
+    .firstsection .first-leftsection button {
+        font-size: 3vw;
+        font-family: poppins;
+        padding: 1vw 2vw;
+        margin-left: 9vw;
+        text-align: center;
+        display: inline-block;
+        margin-top: 4vw;
+    }
+
+    .firstsection .first-rightsection img {
+        width: 80%;
+        height: 80%;
+        padding-left: 5vw;
+    }
+
+    .secondsection {
+        flex-direction: column;
+    }
+    .secondsection .second-leftsection h1{
+        padding-left: 5vw;
+        font-size: 9vw;
+        margin: 4vw 0;
+    }
+    .secondsection .second-leftsection p{
+        font-size: 3vw;
+        line-height: 4vw;
+        padding-left: 5vw;
+    }
+
+}
