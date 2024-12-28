@@ -1,60 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BotBuddy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <nav>
-        <div class="logo"><h1>Bot</h1>
-            <div class="logo-green"><h1>Buddy</h1></div>
-        </div>
-        <div class="nav-icons">
-            <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">FEATURES</a></li>
-                <li><a href="">SERVICES</a></li>
-            </ul>
-        </div>
-        <div class="nav-login">
-            <button id="button-white">Login</button>
-            <button id="button-green">SignIn</button>
-        </div>
+      <div class="logo">
+        <h1>Bot</h1>
+        <div class="logo-green"><h1>Buddy</h1></div>
+      </div>
+      <div class="nav-icons">
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="">FEATURES</a></li>
+          <li><a href="">SERVICES</a></li>
+        </ul>
+      </div>
+      <div class="nav-login">
+        <button id="login" onclick="showLoginPage()">Login</button>
+        <button id="signup" onclick="showSignUpPage()">SignUp</button>
+      </div>
     </nav>
-    <hr>
-    <main>
-        <section class="firstsection">
-            <div class="first-leftsection">
-                <h1>Introducing <span>Bot Buddy,</span> your supportive companion</h1>
-                <p>Meet Bot Buddy, your AI companion for daily interactions. Whether you need quick answers,
-                    task organization, or casual chat, Bot Buddy supports you 24/7. With advanced understanding and adaptive learning,
-                    it offers personalized assistance wherever you are. Enjoy seamless communication with an AI that listens and cares.</p>
-                    <button>Start Free Trail</button>
-            </div>
-            <div class="first-rightsection">
-                <img src="background.png" alt="">
-            </div>
-        </section>
-        <hr>
-        <section class="secondsection">
-            <div class="second-leftsection">
-                <h1>Why Choose Us</h1>
-                <p>Pick us for a quick chatbot with the help from our experts. Watch your revenue grow and reduce your work load by 30%. 
-                Enjoy our speedy chatbot and experty assistance! 
-                </p>
-            </div>
-            <div class="second-rightsection">
-                <img src="chatbot back.png" alt="">
-            </div>
-        </section>
-    </main>
-</body>
+    <hr />
+    <section class="authentication">
+      <div class="container" id="login-page" style="display: none">
+        <p id="close" onclick="closeAuthPage()">X</p>
+        <h1>Login</h1>
 
+        <form action="">
+          <input type="email" name="email" placeholder="Email" required id="email2" />
+          <input type="password" name="password" placeholder="Password" required id="password2"/>
+          <button type="submit">Login</button>
+        </form>
+        <p>
+          Don't have an account?
+          <a href="#" onclick="showSignUpPage()">Sign Up</a>
+        </p>
+      </div>
+      <div class="container" id="signup-page" style="display: none">
+        <p id="close" onclick="closeAuthPage()">X</p>
+        <h1>Sign Up</h1>
+        <form action="" method="">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email" required id="email" />
+          <input type="password" name="password" placeholder="Password" required id="password"/>
+          <button type="submit" id="signupBtn">Create Account</button>
+        </form>
+        <p>
+          Already have an account?
+          <a href="#" onclick="showLoginPage()">Login</a>
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="firstsection">
+        <div class="first-leftsection">
+          <h1>Introducing <span>Bot Buddy,</span> your supportive companion</h1>
+          <p>
+            Meet Bot Buddy, your AI companion for daily interactions. Whether
+            you need quick answers, task organization, or casual chat, Bot Buddy
+            supports you 24/7. With advanced understanding and adaptive
+            learning, it offers personalized assistance wherever you are. Enjoy
+            seamless communication with an AI that listens and cares.
+          </p>
+          <button onclick="showSignUpPage()">Start Free Trail</button>
+        </div>
+        <div class="first-rightsection">
+          <img src="background.png" alt="" />
+        </div>
+      </section>
+      <hr />
+      <section class="secondsection">
+        <div class="second-leftsection">
+          <h1>Why Choose Us</h1>
+          <p>
+            Pick us for a quick chatbot with the help from our experts. Watch
+            your revenue grow and reduce your work load by 30%. Enjoy our speedy
+            chatbot and experty assistance!
+          </p>
+        </div>
+        <div class="second-rightsection">
+          <img src="chatbot back.png" alt="" />
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script type="module" src="auth.js" defer>
+
+    </script>
+  </body>
 </html>
