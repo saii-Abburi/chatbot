@@ -1,176 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BotBuddy</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: white;
-      color: rgb(53, 140, 103);
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BotBuddy</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background-color: white;
+        color: rgb(53, 140, 103);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
 
-    header {
-      background-color: rgb(53, 140, 103);
-      color: white;
-      padding: 15px 20px;
-      text-align: center;
-      font-size: 1.8em;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      letter-spacing: 1px;
-    }
+      header {
+        background-color: rgb(53, 140, 103);
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+      }
 
-    .chat-container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 20px 30px;
-      overflow-y: auto;
-    }
+      .chat-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 30px;
+        overflow-y: auto;
+      }
 
-    .message {
-      margin: 10px 0;
-      padding: 15px 20px;
-      border-radius: 15px;
-      max-width: 70%;
-      font-size: 1em;
-      line-height: 1.5em;
-      word-wrap: break-word;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+      .message {
+        margin: 10px 0;
+        padding: 15px 20px;
+        border-radius: 15px;
+        max-width: 70%;
+        font-size: 1em;
+        line-height: 1.5em;
+        word-wrap: break-word;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    .bot-message {
-      background-color: rgb(245, 245, 245);
-      color: rgb(53, 140, 103);
-      align-self: flex-start;
-      border: 1px solid rgba(53, 140, 103, 0.2);
-    }
+      .bot-message {
+        background-color: rgb(245, 245, 245);
+        color: rgb(53, 140, 103);
+        align-self: flex-start;
+        border: 1px solid rgba(53, 140, 103, 0.2);
+      }
 
-    .user-message {
-      background-color: rgb(53, 140, 103);
-      color: white;
-      align-self: flex-end;
-    }
+      .user-message {
+        background-color: rgb(53, 140, 103);
+        color: white;
+        align-self: flex-end;
+      }
 
-    .input-container {
-      display: flex;
-      padding: 10px 30px;
-      align-items: center;
-      gap: 10px;
-      border-top: 1px solid rgb(240, 240, 240);
-    }
+      .input-container {
+        display: flex;
+        padding: 10px 30px;
+        align-items: center;
+        gap: 10px;
+        border-top: 1px solid rgb(240, 240, 240);
+      }
 
-    .input-container input {
-      flex: 1;
-      padding: 12px 15px;
-      font-size: 1em;
-      border: 1px solid rgb(200, 200, 200);
-      border-radius: 20px;
-      outline: none;
-      transition: border-color 0.3s ease-in-out;
-    }
+      .input-container input {
+        flex: 1;
+        padding: 12px 15px;
+        font-size: 1em;
+        border: 1px solid rgb(200, 200, 200);
+        border-radius: 20px;
+        outline: none;
+        transition: border-color 0.3s ease-in-out;
+      }
 
-    .input-container input:focus {
-      border-color: rgb(53, 140, 103);
-      box-shadow: 0 0 5px rgba(53, 140, 103, 0.3);
-    }
+      .input-container input:focus {
+        border-color: rgb(53, 140, 103);
+        box-shadow: 0 0 5px rgba(53, 140, 103, 0.3);
+      }
 
-    .input-container button {
-      background-color: rgb(53, 140, 103);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1em;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    }
+      .input-container button {
+        background-color: rgb(53, 140, 103);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out,
+          transform 0.2s ease-in-out;
+      }
 
-    .input-container button:hover {
-      background-color: rgb(40, 120, 90);
-      transform: scale(1.05);
-    }
+      .input-container button:hover {
+        background-color: rgb(40, 120, 90);
+        transform: scale(1.05);
+      }
 
+      .chat-container::-webkit-scrollbar {
+        width: 8px;
+      }
 
-    .chat-container::-webkit-scrollbar {
-      width: 8px;
-    }
+      .chat-container::-webkit-scrollbar-thumb {
+        background-color: rgba(53, 140, 103, 0.6);
+        border-radius: 10px;
+      }
 
-    .chat-container::-webkit-scrollbar-thumb {
-      background-color: rgba(53, 140, 103, 0.6);
-      border-radius: 10px;
-    }
+      .chat-container::-webkit-scrollbar-track {
+        background-color: rgba(240, 240, 240, 0.7);
+      }
 
-    .chat-container::-webkit-scrollbar-track {
-      background-color: rgba(240, 240, 240, 0.7);
-    }
+      .chat-container .placeholder {
+        text-align: center;
+        color: rgb(180, 180, 180);
+        font-size: 1em;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>BotBuddy</header>
 
-    .chat-container .placeholder {
-      text-align: center;
-      color: rgb(180, 180, 180);
-      font-size: 1em;
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
+    <div class="chat-container" id="chat-container">
+      <!-- Placeholder for when there are no messages -->
+      <div class="placeholder">Start chatting with BotBuddy!</div>
+    </div>
 
-  <header>
-    BotBuddy
-  </header>
+    <!-- Input Section -->
+    <div class="input-container">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Type your message here..."
+      />
+      <button id="sendButton">Send</button>
+    </div>
 
-
-  <div class="chat-container" id="chat-container">
-    <!-- Placeholder for when there are no messages -->
-    <div class="placeholder">Start chatting with BotBuddy!</div>
-  </div>
-
-  <!-- Input Section -->
-  <div class="input-container">
-    <input type="text" id="userInput" placeholder="Type your message here...">
-    <button id="sendButton">Send</button>
-  </div>
-
-  <script>
-    // Chat functionality
-    const chatContainer = document.getElementById("chat-container");
-    const userInput = document.getElementById("userInput");
-    const sendButton = document.getElementById("sendButton");
-
-    sendButton.addEventListener("click", function () {
-      const userMessage = userInput.value.trim();
-      if (userMessage === "") return;
-
-      // Remove placeholder on the first message
-      const placeholder = document.querySelector(".placeholder");
-      if (placeholder) placeholder.remove();
-
-      // Add user message
-      const userMessageDiv = document.createElement("div");
-      userMessageDiv.classList.add("message", "user-message");
-      userMessageDiv.textContent = userMessage;
-      chatContainer.appendChild(userMessageDiv);
-
-      // Add bot response (dummy response)
-      const botMessageDiv = document.createElement("div");
-      botMessageDiv.classList.add("message", "bot-message");
-      botMessageDiv.textContent = "Thank you for your message. How can I help you?";
-      chatContainer.appendChild(botMessageDiv);
-
-      // Clear input field
-      userInput.value = "";
-
-      // Scroll to the bottom
-      chatContainer.scrollTop = chatContainer.scrollHeight;
-    });
-  </script>
-</body>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
